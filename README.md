@@ -15,4 +15,6 @@ Run UpdateWarbleWordList
 Enjoy!
 
 
-PS:  I included a snapshot of the Warble source code so you'd be sure to have a dictionary.txt file to work with.  If you want, you can go to https://github.com/avojak/warble, get the latest code, and replace what's here.
+PS:  
+* I included a snapshot of the Warble source code so you'd be sure to have a dictionary.txt file to work with.  If you want, you can go to https://github.com/avojak/warble, get the latest code, and replace what's here.
+* The HermitDave_Source.html file will take you to Hermit Dave's web site.  I started with his 50,000 list then trimmed it down to 40,000 to get rid of more obscure words.  There are still a bunch here, but you can edit WordsToIgnore.txt to get rid of ones you don't want to see (again).
