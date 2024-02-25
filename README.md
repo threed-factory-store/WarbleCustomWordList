@@ -6,9 +6,13 @@ This comes with a set of words from Hermit Dave.  If you want to use a different
 Run Make_5LetterWords to make 5letterwords.txt
 
 * If you have a custom list, pass the filename without the ".txt" like "Make_5LetterWords MyList"
+* Make_5LetterWords will take the list and turn it into 5letterwords.txt.  It will make sure all the words in the list are in Warble's dictionary so you don't end up with an unsolvable puzzle.
 
 Run UpdateWarbleWordList
   
 * This will take 5letterwords.txt and make it your Warble word list.  You probably don't want Warble to be running when you do this.
 
 Enjoy!
+
+
+PS:  I included a snapshot of the Warble source code so you'd be sure to have a dictionary.txt file to work with.  If you want, you can go to https://github.com/avojak/warble, get the latest code, and replace what's here.
