@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=@name@
+GenericName=Word Game
+Comment=The word-guessing game
+Categories=Game;LogicGame;
+Exec=@binary@
+Icon=@icon@
+Terminal=false
+Type=Application
+Keywords=Game;Word;Puzzle;wordle;

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+read -p "Are you sure you want to reset the game? (y/n): " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    exit 1
+fi
+
+APP_ID=com.github.avojak.warble
+GSETTINGS_ID=$APP_ID
+GSETTINGS_PATH=$APP_ID
+
+echo
+echo "Resetting GSettings..."
+
+flatpak run --command=gsettings $GSETTINGS_ID reset-recursively $GSETTINGS_PATH
+
+echo
+echo -e "\033[1;32mDone\033[0m"
+echo

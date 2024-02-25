@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# If you want to fine tune the results, you can add words to the $ignore file.
+
+cd "$(dirname '$0')"
+
+base="$1"
+if [ "$base" == "" ]
+then
+	base="HermitDave50000"
+fi
+
+source="${base}.txt"
+lines="${base}_1_Lines.txt"
+five="${base}_2_Five.txt"
+minusDupes="${base}_3_MinusDupes.txt"
+notInDict="${base}_4_NotInDict.txt"
+minusNotInDict="${base}_4_MinusNotInDict.txt"
+minusIgnored="${base}_5_MinusIgnored.txt"
+dict="./warble-master/data/dictionary.txt"
+ignore="WordsToIgnore.txt"
+
+if [ ! -f "${source}" ]
+then
+	echo "Words file '${source}' not found"
+	exit 1
+fi
+if [ ! -f "${dict}" ]
+then
+	echo "Warble dictionary file '${dict}' not found"
+	exit 2
+fi
+
+# 1 - put each word on its own line
+cat ${source} | tr " " "\n" > "${lines}" 
+
+# 2 - remove all but five letter words
+LANG=C.UTF-8 grep ^[a-z][a-z][a-z][a-z][a-z]$ "${lines}" > "${five}"
+
+# 3 - de-dupe
+awk '!seen[$0]++' "${five}" > "${minusDupes}"
+
+# 4 - Remove words not in Warble dictionary
+diff --new-line-format="" --unchanged-line-format="" <(sort "${minusDupes}") <(sort "${dict}") > "${notInDict}"
+grep -Fvxf "${notInDict}" "${minusDupes}" > "${minusNotInDict}"
+
+# 5 - Remove words we want to ignore
+if [ -f "${ignore}" ]
+then
+	grep -Fvxf "${ignore}" "${minusNotInDict}" > "${minusIgnored}"
+else
+	cp "${minusNotInDict}" "${minusIgnored}"
+fi
+
+cp "${minusIgnored}" 5letterwords.txt
+
+#read -p "Press Enter to delete temp files"
+
+rm --force "${lines}"
+rm --force "${five}"
+rm --force "${minusDupes}"
+rm --force "${notInDict}"
+rm --force "${minusNotInDict}"
+rm --force "${minusIgnored}"
+

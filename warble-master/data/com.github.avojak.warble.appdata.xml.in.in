@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2021 Andrew Vojak <andrew.vojak@gmail.com> -->
+<component type="desktop">
+  <id>@appid@</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>@name@</name>
+  <summary>The word-guessing game</summary>
+  <description>
+    <p>Figure out the word before your guesses run out!</p>
+    <ul>
+      <li>Three difficulty levels</li>
+      <li>Almost 5k possible answers</li>
+      <li>Need a break? Close the game and automatically pick back up where you left off</li>
+    </ul>
+  </description>
+  <provides>
+    <binary>@appid@</binary>
+  </provides>
+  <releases>
+    <release version="2.0.1" date="2022-09-24">
+      <description>
+        <p>2.0.1 Release</p>
+        <ul>
+          <li>New icon based on updated keycap shape from elementary OS icon set (#40)</li>
+          <li>Increased blur for translucent overlays (#41)</li>
+          <li>Added captions for appdata screenshots (#42)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.0.0" date="2022-09-02">
+      <description>
+        <p>2.0.0 Release</p>
+        <ul>
+          <li>Hello, GTK4!</li>
+          <li>Improved colors when system is using the dark theme (#20)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.5.0" date="2022-06-16">
+      <description>
+        <p>1.5.0 Release</p>
+        <ul>
+          <li>Respect the system gtk_decoration_layout preference (#36)</li>
+          <li>Fix inability to deselect the menu button (#34)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.4.0" date="2022-06-04">
+      <description>
+        <p>1.4.0 Release</p>
+        <ul>
+          <li>Update to elementary OS 7 runtime</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.3.1" date="2022-03-24">
+      <description>
+        <p>1.3.1 Release</p>
+        <ul>
+          <li>Fix missing title for application window (#31)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.3.0" date="2022-03-20">
+      <description>
+        <p>1.3.0 Release</p>
+        <ul>
+          <li>Fix backspace key symbol not rendering (#23)</li>
+          <li>Fix closing one app window closing all of them (#24)</li>
+          <li>Add ability to reset gameplay statistics (#25)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.2.0" date="2022-01-22">
+      <description>
+        <p>1.2.0 Release</p>
+        <ul>
+          <li>Suggest pressing "Enter" for first-time users (#2)</li>
+          <li>Force elementary OS stylesheet on other platforms (#15)</li>
+          <li>Add high-contrast mode (#17)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.1.1" date="2022-01-12">
+      <description>
+        <p>1.1.1 Release</p>
+        <ul>
+          <li>Fix issue where answers were potentially non-guessable words (#11)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.1.0" date="2022-01-11">
+      <description>
+        <p>1.1.0 Release</p>
+        <ul>
+          <li>Fix issue where a new game couldn't not be started before making a guess (#7)</li>
+          <li>Enable mouse clicks and touchscreen taps to the onscreen keyboard (#1)</li>
+          <li>Update elementary platform runtime to 6.1 (#4)</li>
+          <li>Remove unnecessary network sandbox hole (#5)</li>
+          <li>Remove extraneous OARS metadata (#6)</li>
+          <li>Include "wordle" as a keyword for the desktop file (By cassidyjames)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.0.1" date="2022-01-09">
+      <description>
+        <p>Set Stripe key and monetization</p>
+      </description>
+    </release>
+    <release version="1.0.0" date="2022-01-09">
+      <description>
+        <p>Initial Release</p>
+      </description>
+    </release>
+  </releases>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Game View</caption>
+      <image>https://raw.githubusercontent.com/avojak/warble/master/data/assets/screenshots/warble-screenshot-01.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Game View (Dark Mode)</caption>
+      <image>https://raw.githubusercontent.com/avojak/warble/master/data/assets/screenshots/warble-screenshot-02.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Victory Screen</caption>
+      <image>https://raw.githubusercontent.com/avojak/warble/master/data/assets/screenshots/warble-screenshot-03.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Hard Mode</caption>
+      <image>https://raw.githubusercontent.com/avojak/warble/master/data/assets/screenshots/warble-screenshot-04.png</image>
+    </screenshot>
+  </screenshots>
+  <developer_name>Andrew Vojak</developer_name>
+  <launchable type="desktop-id">@appid@.desktop</launchable>
+  <url type="homepage">https://github.com/avojak/warble</url>
+  <url type="bugtracker">https://github.com/avojak/warble/issues</url>
+  <url type="help">https://github.com/avojak/warble/issues</url>
+  <update_contact>andrew.vojak@gmail.com</update_contact>
+  <content_rating type="oars-1.1" />
+  <custom>
+    <value key="x-appcenter-color-primary">#fff</value>
+    <value key="x-appcenter-color-primary-text">#333</value>
+    <value key="x-appcenter-suggested-price">1</value>
+    <value key="x-appcenter-stripe">pk_live_51GeuzCC9Tk2ZlXfTH9I5SxBe2erSseFugr18KbfprFI6pWxcQGe3vdfqTc2T5TCR1WxWQpzIX3AUq5NtLMUeQoJw00CavY8JuW</value>
+  </custom>
+</component>

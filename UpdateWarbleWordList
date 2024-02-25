@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+AppName="warble"
+AppVersion=$(snap list | grep "$AppName" | awk '{print $3}')
+echo "AppVersion=${AppVersion}"
+AppFile="/var/lib/snapd/snaps/${AppName}_${AppVersion}.snap"
+ls "${AppFile}"
+AppMount="snap-${AppName}-${AppVersion}.mount"
+sudo systemctl stop "${AppMount}"
+sudo /usr/lib/snapd/snap-discard-ns "${AppName}"
+
+tmpFolder="/tmp/${AppName}-${AppVersion}-update"
+rm --force --recursive "${tmpFolder}"
+mkdir "${tmpFolder}" && cd "${tmpFolder}"
+
+sudo chmod o+r "${AppFile}"
+unsquashfs -d snap "${AppFile}"
+
+wordsFile="${tmpFolder}/snap/usr/share/com.github.avojak.warble/words.txt"
+cp ~/Documents/Warble/5letterwords.txt ${wordsFile}
+
+sudo rm -f "${AppFile}"
+sudo mksquashfs snap "${AppFile}" -noappend -comp lzo -no-fragments
+sudo systemctl start "${AppMount}"
+
+rm --force --recursive "${tmpFolder}"
